@@ -33,7 +33,7 @@ project2 = {'$project': {
 }}
 print('--------------')
 results = db['transactions'].aggregate(
-    [project1, gropu_date_script, sort, project2],
+    [match_axie_market_contract, project1, gropu_date_script, sort, project2],
     allowDiskUse=True)
 
 # results = db.block.find({'timestamp': {'$gt': datetime(2021, 5, 16), '$lt': datetime(2021, 5, 17)}})
@@ -41,4 +41,4 @@ results = db['transactions'].aggregate(
 data = list(results)
 frame = pd.DataFrame(data)
 
-frame.to_csv('market_contract每日活跃地址量.csv', index=False)
+frame.to_csv('每日axie_market活跃地址量.csv', index=False)
